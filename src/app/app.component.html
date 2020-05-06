@@ -1,4 +1,16 @@
+<ul>
+  <li>
+    <a [routerLink]="['/']" [queryParams]="{ type: 'male' }">男性用フォーム</a>
+  </li>
+  <li>
+    <a [routerLink]="['/']" [queryParams]="{ type: 'female' }"
+      >女性用フォーム</a
+    >
+  </li>
+</ul>
+
 <form [formGroup]="form">
+  <h2>共通部分</h2>
   <label
     >名前
     <input type="text" formControlName="name" />
@@ -7,6 +19,8 @@
     >Eメール
     <input type="text" formControlName="email" />
   </label>
+
+  <h2>性別別フォーム</h2>
   <div [ngSwitch]="type">
     <ng-container *ngSwitchCase="'male'">
       <label
